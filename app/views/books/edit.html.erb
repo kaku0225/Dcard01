@@ -1,0 +1,32 @@
+<% if @book.errors.any? %>
+  <ul>
+    <% @book.errors.full_messages.each do |message| %>
+    <li><%= message %></li>
+    <% end %>
+  </ul>
+<% end %>
+
+
+<h1>請編輯書籍</h1>
+
+<%= form_for(@book) do |form| %>
+
+<div>
+  <%= form.label :bookname %>
+  <%= form.text_field :bookname %>
+</div>
+
+<div>
+  <%= form.label :author %>
+  <%= form.text_field :author %>
+</div>
+
+<div>
+  <%= form.submit %>
+</div>
+
+<div>
+  <%= link_to '回上一頁', :back %>
+</div>
+
+<% end %>
